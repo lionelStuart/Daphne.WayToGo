@@ -22,7 +22,7 @@ var (
 )
 
 func init() {
-	mailConf = Conf.GetMailConf("../Conf/mail.toml")
+	mailConf = Conf.GetMailConf("mail.toml")
 	mailDialer = gomail.NewDialer(mailConf.Mail.Host,
 		int(mailConf.Mail.Port),
 		mailConf.Mail.Mailer,

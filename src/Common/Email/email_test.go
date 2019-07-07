@@ -9,7 +9,7 @@ import (
 )
 
 func TestGoMail(t *testing.T) {
-	mailConf := Conf.GetMailConf("../Conf/mail.toml")
+	mailConf := Conf.GetMailConf("mail.toml")
 	t.Log("current log mail ", mailConf.Mail.Host)
 	m := gomail.NewMessage()
 	m.SetAddressHeader("From", mailConf.Mail.From, mailConf.Mail.From)
