@@ -3,6 +3,7 @@ package DB
 import (
 	"database/sql"
 	"github.com/BurntSushi/toml"
+	_ "github.com/go-sql-driver/mysql"
 	"path/filepath"
 	"strconv"
 	"sync"
@@ -54,7 +55,7 @@ func NewConn() (*sql.DB, error) {
 	DB, err := sql.Open("mysql", dbConf.Mysql.User+
 		":"+dbConf.Mysql.Password+"@tcp("+
 		dbConf.Mysql.Host+":"+strconv.FormatUint(uint64(dbConf.Mysql.Port), 10)+")/"+
-		dbConf.Mysql.DB+"?charset=utf8")
+		dbConf.Mysql.DB+"?charset=utf8&parseTime=true")
 	if err != nil {
 		panic(err)
 		return nil, err
